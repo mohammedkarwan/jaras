@@ -48,7 +48,7 @@ class _ffState extends State<ff> {
                   },
                   separatorBuilder: (context, index) {
                     return SizedBox(
-                      height: 40,
+                      height: 30,
                     );
                   },
                   itemCount: dd.length),
