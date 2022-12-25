@@ -10,7 +10,7 @@ class LanguageCubit extends Cubit<Locale?> {
   static LanguageCubit get(context) => BlocProvider.of(context);
   changeStartLang() async {
     var langCode = await CacheHelper.getData(key: defaultLangKey);
-    print(langCode);
+    print(langCode + 'langCodelangCodelangCodelangCode');
     if (langCode != null) {
       emit(Locale(langCode, ''));
     } else {
