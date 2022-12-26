@@ -171,6 +171,7 @@ class LoginScreen extends StatelessWidget {
                 children: [
                   SizedBox(
                     height: size.height * 0.1,
+                    //
                   ),
                   Text(
                     language(context).entecode,
