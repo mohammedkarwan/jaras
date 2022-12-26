@@ -20,10 +20,12 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     context.read<LanguageCubit>().changeStartLang();
-
+    var scaffoldkey = GlobalKey<ScaffoldState>();
+    var formKey = GlobalKey<FormState>();
+    final phoneController = TextEditingController();
+    final codeController = TextEditingController();
     return BlocConsumer<LogingCubit, LoginStates>(
       builder: (context, state) {
-        var scaffoldkey = GlobalKey<ScaffoldState>();
         Size size = MediaQuery.of(context).size;
         var cubit = LogingCubit.get(context);
 
@@ -165,114 +167,154 @@ class LoginScreen extends StatelessWidget {
               buildApper(size, context, () {
                 scaffoldkey.currentState?.openDrawer();
               }, () {}),
-              SizedBox(
-                height: size.height * 0.2,
-              ),
-              Text(
-                language(context).entecode,
-                style: Theme.of(context).textTheme.subtitle1!.copyWith(
-                      color: myFavColor,
-                    ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 40),
-                child: TextFormField(
-                  keyboardType: TextInputType.number,
-                  textAlign: TextAlign.center,
-                  decoration: InputDecoration(
-                    filled: true,
-                    hintText: language(context).accesscode,
-                    alignLabelWithHint: true,
-                    focusColor: Colors.grey.shade200,
-                    border: OutlineInputBorder(
-                      borderSide: BorderSide.none,
-                      borderRadius: BorderRadius.circular(100),
-                    ),
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 25,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+              Column(
                 children: [
-                  InkWell(
-                    onTap: () {
-                      cubit.changeLange(context);
-                    },
-                    child: CircleAvatar(
-                      child: Text(
-                        cubit.isLang == false ? 'English' : 'العربي',
-                        style: Theme.of(context).textTheme.subtitle1,
-                        textAlign: TextAlign.center,
-                      ),
-                      radius: 45,
-                      backgroundColor: myFavColor2,
+                  SizedBox(
+                    height: size.height * 0.1,
+                  ),
+                  Text(
+                    language(context).entecode,
+                    style: Theme.of(context).textTheme.subtitle1!.copyWith(
+                          color: myFavColor,
+                        ),
+                  ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Column(
+                      children: [
+                        defaultTextField(
+                          controller: phoneController,
+                          label: language(context).telephoneNumber,
+                          priFix: Icons.phone,
+                          validate: (value) {
+                            if (value!.isEmpty) {
+                              return language(context).pleaseEnterSomeText;
+                            }
+                            return null;
+                          },
+                          keyBoard: TextInputType.number,
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        defaultTextField(
+                          controller: codeController,
+                          label: language(context).accesscode,
+                          priFix: Icons.lock_outline,
+                          validate: (value) {
+                            if (value!.isEmpty) {
+                              return language(context).pleaseEnterSomeText;
+                            }
+                            return null;
+                          },
+                          keyBoard: TextInputType.number,
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Align(
+                          alignment: AlignmentDirectional.topStart,
+                          child: MaterialButton(
+                            height: 40,
+                            minWidth: 150,
+                            onPressed: () {
+                              if (formKey.currentState!.validate()) {}
+                            },
+                            color: myFavColor,
+                            child: Text(language(context).login,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                )),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    height: 25,
                   ),
-                  InkWell(
-                    child: CircleAvatar(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            language(context).problem,
-                            style: Theme.of(context).textTheme.subtitle2,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      InkWell(
+                        onTap: () {
+                          cubit.changeLange(context);
+                        },
+                        child: CircleAvatar(
+                          child: Text(
+                            cubit.isLang == false ? 'English' : 'العربي',
+                            style: Theme.of(context).textTheme.subtitle1,
                             textAlign: TextAlign.center,
                           ),
-                          Text(
-                            language(context).login,
-                            style: Theme.of(context).textTheme.subtitle2,
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
+                          radius: 45,
+                          backgroundColor: myFavColor2,
+                        ),
                       ),
-                      radius: 45,
-                      backgroundColor: Colors.brown,
-                    ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      InkWell(
+                        child: CircleAvatar(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                language(context).problem,
+                                style: Theme.of(context).textTheme.subtitle2,
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                language(context).login,
+                                style: Theme.of(context).textTheme.subtitle2,
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                          radius: 45,
+                          backgroundColor: Colors.brown,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      InkWell(
+                        onTap: () {
+                          navPush(context, RegssterScreen());
+                        },
+                        child: CircleAvatar(
+                          child: Column(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text(
+                                language(context).registration,
+                                style: Theme.of(context).textTheme.subtitle1,
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                                textAlign: TextAlign.center,
+                              ),
+                              Text(
+                                language(context).nnew,
+                                style: Theme.of(context).textTheme.subtitle1,
+                                textAlign: TextAlign.center,
+                              ),
+                            ],
+                          ),
+                          radius: 45,
+                          backgroundColor: myFavColor1,
+                        ),
+                      ),
+                    ],
                   ),
                   SizedBox(
-                    width: 10,
+                    height: size.height * 0.05,
                   ),
-                  InkWell(
-                    onTap: () {
-                      navPush(context, RegssterScreen());
-                    },
-                    child: CircleAvatar(
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(
-                            language(context).registration,
-                            style: Theme.of(context).textTheme.subtitle1,
-                            overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            textAlign: TextAlign.center,
-                          ),
-                          Text(
-                            language(context).nnew,
-                            style: Theme.of(context).textTheme.subtitle1,
-                            textAlign: TextAlign.center,
-                          ),
-                        ],
-                      ),
-                      radius: 45,
-                      backgroundColor: myFavColor1,
-                    ),
-                  ),
+                  buildImag(),
                 ],
               ),
-              SizedBox(
-                height: size.height * 0.15,
-              ),
-              buildImag(),
             ]),
           ),
         );

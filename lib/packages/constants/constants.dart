@@ -4,7 +4,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../helper/cache_helper.dart';
 
-const defaultColor = Color(0xff417D7A);
 const secondColor = Color(0xffEEEEEE);
 double defaultBorder = 8.0;
 var token = CacheHelper.getData(key: tokenKey);

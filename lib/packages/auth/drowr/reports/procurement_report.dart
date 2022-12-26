@@ -93,7 +93,8 @@ class ProcurementReportScreeen extends StatelessWidget {
               ]),
             ),
             Expanded(
-              child: Row(children: [
+              child:
+                  Row(mainAxisAlignment: MainAxisAlignment.center, children: [
                 defultContatnerTowTex(
                   size: size,
                   context: context,
@@ -105,7 +106,6 @@ class ProcurementReportScreeen extends StatelessWidget {
                   text1: language(context).requester,
                   text2: 'محمد احمدٍ',
                 ),
-                Spacer(),
               ]),
             ),
           ]),
@@ -158,11 +158,121 @@ class ProcurementReportScreeen extends StatelessWidget {
           ),
           Spacer(),
         ]),
+        // Table(
+        //   children: [
+        //     TableRow(children: [
+        //       Text(
+        //         language(context).history,
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 11),
+        //       ),
+        //       Text(
+        //         language(context).time,
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 11),
+        //       ),
+        //       Text(
+        //         language(context).correspondent,
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 11),
+        //       ),
+        //       Text(
+        //         language(context).requester,
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 11),
+        //       ),
+        //       Text(
+        //         language(context).subject,
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 11),
+        //       ),
+        //       Text(
+        //         language(context).quantity,
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 11),
+        //       ),
+        //       Text(
+        //         language(context).evaluation,
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 11),
+        //       ),
+        //     ]),
+        //   ],
+        // ),
         Divider(
           indent: 5,
           endIndent: 5,
           thickness: 3,
         ),
+        // Table(
+        //   children: [
+        //     TableRow(children: [
+        //       Text(
+        //         '1/2/2022',
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle2!
+        //             .copyWith(color: myFavColor, fontSize: 9),
+        //       ),
+        //       Text(
+        //         '10:0:0Am',
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 9),
+        //       ),
+        //       Text(
+        //         'محمد احمد',
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 9),
+        //       ),
+        //       Text(
+        //         'خالد محمد',
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 9),
+        //       ),
+        //       Text(
+        //         'جرس',
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 9),
+        //       ),
+        //       Text(
+        //         '5',
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 9),
+        //       ),
+        //       Text(
+        //         '3',
+        //         style: Theme.of(context)
+        //             .textTheme
+        //             .subtitle1!
+        //             .copyWith(fontSize: 9),
+        //       ),
+        //     ]),
+        //   ],
+        // ),
         Expanded(
           child: ListView.separated(
               shrinkWrap: true,
@@ -185,6 +295,7 @@ class ProcurementReportScreeen extends StatelessWidget {
               },
               itemCount: 15),
         ),
+
         Container(
           color: myFavColor,
           height: 60,
@@ -329,25 +440,25 @@ Widget textRow({
       ),
       Text(
         name1,
-        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 8),
+        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 9),
       ),
       Text(
         name2,
-        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 8),
+        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 9),
       ),
       Text(
         name3,
-        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 8),
+        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 9),
       ),
       Text(
         name4,
-        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 8),
+        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 9),
       ),
       Text(
         name5,
-        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 8),
+        style: Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 9),
       ),
       SizedBox(
-        width: 10,
+        width: 5,
       ),
     ]);

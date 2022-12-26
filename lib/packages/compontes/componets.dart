@@ -531,3 +531,41 @@ Widget builedContanerBotton({
         ),
       ),
     );
+Widget defaultTextField({
+  required TextEditingController controller,
+  required String label,
+  IconData? priFix,
+  String? Function(String?)? validate,
+  TextInputType? keyBoard,
+  Widget? suffixIcon,
+  Function(String)? onChange,
+  Function()? suffixPress,
+  TextInputAction? textAction,
+  Function(String?)? onSubmitted,
+  bool isPassword = false,
+}) =>
+    TextFormField(
+      obscureText: isPassword,
+      onFieldSubmitted: onSubmitted,
+      textInputAction: textAction,
+      cursorColor: myFavColor,
+      controller: controller,
+      decoration: InputDecoration(
+        floatingLabelStyle: TextStyle(color: myFavColor),
+        focusedBorder: OutlineInputBorder(
+          borderSide: BorderSide(
+            color: myFavColor,
+            width: 2,
+          ),
+        ),
+        label: Text(label),
+        suffixIcon: suffixIcon,
+        prefixIcon: Icon(
+          priFix,
+        ),
+        border: const OutlineInputBorder(),
+      ),
+      validator: validate,
+      onChanged: onChange,
+      keyboardType: keyBoard,
+    );

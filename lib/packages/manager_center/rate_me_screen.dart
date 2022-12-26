@@ -12,6 +12,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../compontes/componets.dart';
 import '../constants/constants.dart';
+import '../manager_room/room.dart';
 import '../style/colors.dart';
 
 class RateMeScreen extends StatelessWidget {
@@ -113,6 +114,7 @@ class RateMeScreen extends StatelessWidget {
                     name: language(context).therooms,
                     onTap: () {
                       Navigator.pop(context);
+                      navPush(context, RoomScreen());
                     }),
                 componetsDrower(
                     context: context,

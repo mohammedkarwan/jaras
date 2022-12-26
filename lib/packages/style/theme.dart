@@ -17,7 +17,7 @@ ThemeData lightMode = ThemeData(
   ),
   popupMenuTheme: const PopupMenuThemeData(color: secondColor),
   colorScheme: ThemeData().colorScheme.copyWith(
-        primary: defaultColor,
+        primary: myFavColor,
       ),
   textTheme: const TextTheme(
     bodyText1: TextStyle(fontFamily: "CairoB", color: Colors.black),

@@ -1,5 +1,13 @@
 {
-  
+ 
+  "delete":"Delete",
+  "show":"Show",
+  "addNew":"Add new",
+  "section":"Section",
+  "management":"Management",
+  "roomName":"Room name",
+  "roomcode":"Room code",
+  "rooms":"Rooms",
   "sendReport":"Send report",
   "numberEecords":"Number records",
   "quantity":"Quantity",
@@ -101,6 +109,6 @@
     "entering":"by entering",
     "problem":"Problem",
     "accesscode":"Access code",
-    "entecode":"Please enter the access code"
+    "entecode":"Please enter phone number and access code"
 
 }

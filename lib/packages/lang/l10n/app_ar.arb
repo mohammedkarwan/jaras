@@ -1,4 +1,13 @@
-{ 
+{
+ 
+    "delete":"حذف",
+    "show":"عرض",
+    "addNew":"اضافة جديد",
+    "section":"القسم",
+    "management":"الادارة",
+    "roomName":"اسم الغرفة",
+    "roomcode":"رمز الغرفة",
+    "rooms":"الغرف",
     "sendReport":"ارسال التقارير",
     "numberEecords":"عدد السجلات",
     "quantity":"الكمية",
@@ -100,7 +109,7 @@
     "entering":"بالدخول",
     "problem":"مشكلة",
     "accesscode":"رمز الدخول",
-    "entecode":"يرجى ادخال رمز الدخول"
+    "entecode":"يرجى ادخال رقم الهاتف و رمز الدخول"
 
 
 

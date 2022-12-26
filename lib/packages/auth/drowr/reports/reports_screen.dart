@@ -51,10 +51,10 @@ class ReportsScreen extends StatelessWidget {
                         navPush(context, ServiceReport());
                       },
                       child: CircleAvatar(
-                        backgroundColor: Colors.red,
+                        backgroundColor: myFavColor1,
                         radius: 35,
                         child: Icon(
-                          Icons.local_fire_department_sharp,
+                          Icons.add_card,
                           size: 30,
                           color: Colors.white,
                         ),
