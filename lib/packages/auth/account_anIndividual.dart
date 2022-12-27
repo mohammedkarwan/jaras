@@ -1,20 +1,48 @@
-import 'package:ee/packages/manager_center/main_screen.dart';
 import 'package:flutter/material.dart';
 
 import '../compontes/componets.dart';
 import '../constants/constants.dart';
+import '../manager_center/main_screen.dart';
 import '../style/colors.dart';
 
-class AccountanIndividual extends StatelessWidget {
+class AccountanIndividual extends StatefulWidget {
+  @override
+  State<AccountanIndividual> createState() => _AccountanIndividualState();
+}
+
+enum Fruit {
+  a,
+  b,
+}
+
+Fruit? _fruit = Fruit.a;
+
+enum Lang {
+  ar,
+  en,
+}
+
+Lang? lang = Lang.ar;
+
+class _AccountanIndividualState extends State<AccountanIndividual> {
   var nameArbic = TextEditingController();
+
   var nameEnglash = TextEditingController();
+
   var nuberphone = TextEditingController();
+
   var saty = TextEditingController();
+
   var subtyp = TextEditingController();
+
   var user = TextEditingController();
+
   var lanFav = TextEditingController();
+
   var accessCode = TextEditingController();
+
   var configerAccessCode = TextEditingController();
+
   final _formKey = GlobalKey<FormState>();
 
   @override
@@ -119,31 +147,163 @@ class AccountanIndividual extends StatelessWidget {
                   subtyp,
                 ),
                 SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
-                textAndTextFromFiled(context, language(context).userCategory,
-                    (value) {
-                  if (value!.isEmpty) {
-                    return language(context).pleaseEnterSomeText;
-                  } else
-                    return null;
-                }, user),
+
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: myFavColor)),
+                  child: Row(
+                    children: [
+                      Text(
+                        language(context).userCategory,
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle1!
+                            .copyWith(color: myFavColor, fontSize: 13),
+                      ),
+                      SizedBox(
+                        width: 45,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Radio<Fruit>(
+                                value: Fruit.a,
+                                groupValue: _fruit,
+                                onChanged: (Fruit? value) {
+                                  setState(() {
+                                    _fruit = value;
+                                  });
+                                },
+                              ),
+                              Text(
+                                language(context).normalUser,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .subtitle1!
+                                    .copyWith(fontSize: 13),
+                              )
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Radio<Fruit>(
+                                value: Fruit.b,
+                                groupValue: _fruit,
+                                onChanged: (Fruit? value) {
+                                  setState(() {
+                                    _fruit = value;
+                                  });
+                                },
+                              ),
+                              Text(
+                                language(context).correspondent,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .subtitle1!
+                                    .copyWith(fontSize: 13),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                // textAndTextFromFiled(context, language(context).userCategory,
+                //     (value) {
+                //   if (value!.isEmpty) {
+                //     return language(context).pleaseEnterSomeText;
+                //   } else
+                //     return null;
+                // }, user),
                 SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
-                textAndTextFromFiled(
-                  context,
-                  language(context).preferredLanguage,
-                  (value) {
-                    if (value!.isEmpty) {
-                      return language(context).pleaseEnterSomeText;
-                    } else
-                      return null;
-                  },
-                  lanFav,
+                Container(
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: myFavColor)),
+                  child: Row(
+                    children: [
+                      Text(
+                        language(context).preferredLanguage,
+                        style: Theme.of(context)
+                            .textTheme
+                            .subtitle1!
+                            .copyWith(color: myFavColor, fontSize: 13),
+                      ),
+                      SizedBox(
+                        width: 45,
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Row(
+                            children: [
+                              Radio<Lang>(
+                                value: Lang.ar,
+                                groupValue: lang,
+                                onChanged: (Lang? value) {
+                                  setState(() {
+                                    lang = value;
+                                  });
+                                },
+                              ),
+                              Text(
+                                language(context).arabic,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .subtitle1!
+                                    .copyWith(fontSize: 13),
+                              )
+                            ],
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            children: [
+                              Radio<Lang>(
+                                value: Lang.en,
+                                groupValue: lang,
+                                onChanged: (Lang? value) {
+                                  setState(() {
+                                    lang = value;
+                                  });
+                                },
+                              ),
+                              Text(
+                                language(context).einglish,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .subtitle1!
+                                    .copyWith(fontSize: 13),
+                              )
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
+                // textAndTextFromFiled(
+                //   context,
+                //   language(context).preferredLanguage,
+                //   (value) {
+                //     if (value!.isEmpty) {
+                //       return language(context).pleaseEnterSomeText;
+                //     } else
+                //       return null;
+                //   },
+                //   lanFav,
+                // ),
                 SizedBox(
-                  height: 5,
+                  height: 10,
                 ),
                 textAndTextFromFiled(context, language(context).accesscode,
                     (value) {
@@ -162,9 +322,6 @@ class AccountanIndividual extends StatelessWidget {
                   } else
                     return null;
                 }, configerAccessCode),
-                SizedBox(
-                  height: size.height * 0.1,
-                ),
               ],
             ),
           ),

@@ -1,21 +1,22 @@
 import 'package:flutter/material.dart';
 
-import '../compontes/componets.dart';
-import '../constants/constants.dart';
-import '../style/colors.dart';
+import '../../../compontes/componets.dart';
+import '../../../constants/constants.dart';
+import '../../../style/colors.dart';
 
-class ServesScreen extends StatefulWidget {
+class BriberySetting extends StatefulWidget {
+  const BriberySetting({Key? key}) : super(key: key);
+
   @override
-  State<ServesScreen> createState() => _ServesScreenState();
+  State<BriberySetting> createState() => _BriberySettingState();
 }
 
 enum Fruit { a, b, c, d, f, g }
 
 Fruit? _fruit = Fruit.a;
 
-class _ServesScreenState extends State<ServesScreen> {
+class _BriberySettingState extends State<BriberySetting> {
   bool iscolorgray = true;
-
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
@@ -51,7 +52,7 @@ class _ServesScreenState extends State<ServesScreen> {
           height: size.height * 0.1,
           child: Center(
               child: Text(
-            language(context).serviceSettings,
+            language(context).purchaseSettings,
             style: Theme.of(context).textTheme.subtitle2,
           )),
         ),

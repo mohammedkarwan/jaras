@@ -1,5 +1,13 @@
 {
- 
+    "einglish":"انجليزي",
+    "arabic":"عربي",
+    "normalUser":"مستخدم عادي",
+    "sendTo":"ترسل الى",
+    "newShoppinglist":"قائمة المشتريات جديد ",
+    "previousPurchases":"مشتريات سابقة",
+    "newPurchases":"مشتريات جديدة",
+    "purchaseSettings":"اعدادات المشتريات",
+    "employeeode":"رمز الموظف",
     "delete":"حذف",
     "show":"عرض",
     "addNew":"اضافة جديد",

@@ -1,5 +1,13 @@
 {
- 
+  "einglish":"Einglish",
+  "arabic":"Arabic",
+  "normalUser":"Normal user",
+  "sendTo":"Send to",
+  "newShoppinglist":"New shopping list",
+  "previousPurchases":"Previous purchases",
+  "newPurchases":"New purchases",
+  "purchaseSettings":"Purchase settings",
+"employeeode":"Employee code",
   "delete":"Delete",
   "show":"Show",
   "addNew":"Add new",

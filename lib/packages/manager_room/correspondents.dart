@@ -4,8 +4,8 @@ import '../compontes/componets.dart';
 import '../constants/constants.dart';
 import '../style/colors.dart';
 
-class RoomScreen extends StatelessWidget {
-  const RoomScreen({Key? key}) : super(key: key);
+class CorrespondentsScreen extends StatelessWidget {
+  const CorrespondentsScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class RoomScreen extends StatelessWidget {
           width: double.infinity,
           child: Center(
             child: Text(
-              language(context).rooms,
+              language(context).correspondents,
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),

@@ -1,23 +1,31 @@
 import 'package:flutter/material.dart';
 
-import '../../compontes/componets.dart';
-import '../../constants/constants.dart';
-import '../../style/colors.dart';
+import '../../../compontes/componets.dart';
+import '../../../constants/constants.dart';
+import '../../../style/colors.dart';
 
-class StoreScreen extends StatefulWidget {
+class NewShoppingListScreen extends StatefulWidget {
   @override
-  State<StoreScreen> createState() => _StoreScreenState();
+  State<NewShoppingListScreen> createState() => _NewShoppingListScreenState();
 }
 
-class _StoreScreenState extends State<StoreScreen> {
+class _NewShoppingListScreenState extends State<NewShoppingListScreen> {
   int countr = 0;
+
   int countr1 = 0;
+
   int countr2 = 0;
+
   int countr3 = 0;
+
   int countr4 = 0;
+
   int countr5 = 0;
+
   int countr6 = 0;
+
   int countr7 = 0;
+
   int countr8 = 0;
 
   @override
@@ -52,78 +60,13 @@ class _StoreScreenState extends State<StoreScreen> {
         Container(
           width: double.infinity,
           color: myFavColor,
-          height: size.height * 0.18,
-          child: Column(children: [
-            SizedBox(
-              height: size.height * 0.04,
-            ),
-            Text(
-              language(context).thestore,
+          height: size.height * 0.13,
+          child: Center(
+            child: Text(
+              language(context).newShoppinglist,
               style: Theme.of(context).textTheme.subtitle2,
             ),
-            SizedBox(
-              height: size.height * 0.04,
-            ),
-            Text(
-              language(context).theLastMmaterials,
-              style: Theme.of(context).textTheme.subtitle2,
-            ),
-          ]),
-        ),
-        Container(
-          width: double.infinity,
-          height: size.height * 0.08,
-          child: Row(children: [
-            Spacer(),
-            Text(
-              language(context).dateOfpurchase,
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle2!
-                  .copyWith(color: myFavColor, fontSize: 12),
-            ),
-            SizedBox(
-              width: 2,
-            ),
-            Text(
-              '1/12/2022',
-              style:
-                  Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 11),
-            ),
-            Spacer(),
-            Text(
-              language(context).lastInventorywasventoryDate,
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle2!
-                  .copyWith(color: myFavColor, fontSize: 12),
-            ),
-            SizedBox(
-              width: 2,
-            ),
-            Text(
-              '1/12/2022',
-              style:
-                  Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 11),
-            ),
-            Spacer(),
-            Text(
-              language(context).fromBefore,
-              style: Theme.of(context)
-                  .textTheme
-                  .subtitle2!
-                  .copyWith(color: myFavColor, fontSize: 12),
-            ),
-            SizedBox(
-              width: 2,
-            ),
-            Text(
-              '1/12/2022',
-              style:
-                  Theme.of(context).textTheme.subtitle1!.copyWith(fontSize: 11),
-            ),
-            Spacer(),
-          ]),
+          ),
         ),
         buledTable(
             size: size,
@@ -158,23 +101,16 @@ class _StoreScreenState extends State<StoreScreen> {
               ),
               Spacer(),
               Text(
-                language(context).buyingsucceeded,
+                language(context).englishType,
                 style: Theme.of(context)
                     .textTheme
                     .subtitle1!
                     .copyWith(color: myFavColor, fontSize: 12),
               ),
               Spacer(),
-              Text(
-                language(context).unit,
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle1!
-                    .copyWith(color: myFavColor, fontSize: 12),
-              ),
               Spacer(),
               Text(
-                language(context).residual,
+                language(context).quantity,
                 style: Theme.of(context)
                     .textTheme
                     .subtitle1!
@@ -208,15 +144,7 @@ class _StoreScreenState extends State<StoreScreen> {
                     ),
                     Spacer(),
                     Text(
-                      '5',
-                      style: Theme.of(context)
-                          .textTheme
-                          .subtitle1!
-                          .copyWith(fontSize: 13),
-                    ),
-                    Spacer(),
-                    Text(
-                      language(context).kilo,
+                      'Lanundry soap',
                       style: Theme.of(context)
                           .textTheme
                           .subtitle1!
@@ -710,6 +638,19 @@ class _StoreScreenState extends State<StoreScreen> {
                     ),
                   ],
                 ),
+              ),
+            ],
+          ),
+        ),
+        Container(
+          height: 50,
+          width: double.infinity,
+          color: myFavColor2,
+          child: Row(
+            children: [
+              Text(
+                "${language(context).sendTo}:",
+                style: Theme.of(context).textTheme.subtitle1,
               ),
             ],
           ),

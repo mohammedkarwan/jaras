@@ -4,8 +4,8 @@ import '../compontes/componets.dart';
 import '../constants/constants.dart';
 import '../style/colors.dart';
 
-class RoomScreen extends StatelessWidget {
-  const RoomScreen({Key? key}) : super(key: key);
+class EmployScreen extends StatelessWidget {
+  const EmployScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class RoomScreen extends StatelessWidget {
           width: double.infinity,
           child: Center(
             child: Text(
-              language(context).rooms,
+              language(context).employees,
               style: Theme.of(context).textTheme.subtitle2,
             ),
           ),
@@ -98,7 +98,7 @@ Widget builedRom({
         Row(
           children: [
             Text(
-              language(context).roomcode,
+              language(context).employeeode,
               style: Theme.of(context)
                   .textTheme
                   .subtitle2!
@@ -116,7 +116,7 @@ Widget builedRom({
             ),
             Spacer(),
             Text(
-              language(context).roomName,
+              language(context).name,
               style: Theme.of(context)
                   .textTheme
                   .subtitle2!
@@ -173,40 +173,83 @@ Widget builedRom({
             ),
           ],
         ),
+        Spacer(),
         Row(
           children: [
             Spacer(),
-            MaterialButton(
-              height: 32,
-              color: myFavColor1,
-              onPressed: () {},
-              child: Text(
-                language(context).show,
-                style: Theme.of(context).textTheme.subtitle2,
+            Container(
+              height: 30,
+              child: MaterialButton(
+                minWidth: 30,
+                height: 32,
+                color: myFavColor,
+                onPressed: () {},
+                child: Text(
+                  language(context).correspondents,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2!
+                      .copyWith(fontSize: 9),
+                ),
               ),
             ),
             Spacer(),
-            MaterialButton(
-              height: 32,
-              color: myFavColor2,
-              onPressed: () {},
-              child: Text(
-                language(context).update,
-                style: Theme.of(context).textTheme.subtitle2,
+            Container(
+              height: 30,
+              width: 80,
+              child: MaterialButton(
+                minWidth: 60,
+                height: 32,
+                color: myFavColor1,
+                onPressed: () {},
+                child: Text(
+                  language(context).show,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2!
+                      .copyWith(fontSize: 11),
+                ),
               ),
             ),
             Spacer(),
-            MaterialButton(
-              height: 32,
-              color: Colors.red,
-              onPressed: () {},
-              child: Text(
-                language(context).delete,
-                style: Theme.of(context).textTheme.subtitle2,
+            Container(
+              height: 30,
+              width: 80,
+              child: MaterialButton(
+                minWidth: 30,
+                height: 32,
+                color: myFavColor2,
+                onPressed: () {},
+                child: Text(
+                  language(context).update,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2!
+                      .copyWith(fontSize: 11),
+                ),
+              ),
+            ),
+            Spacer(),
+            Container(
+              height: 30,
+              width: 80,
+              child: MaterialButton(
+                minWidth: 30,
+                height: 32,
+                color: Colors.red,
+                onPressed: () {},
+                child: Text(
+                  language(context).delete,
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle2!
+                      .copyWith(fontSize: 11),
+                ),
               ),
             ),
             Spacer(),
           ],
         ),
+        Spacer(),
       ]),
     );

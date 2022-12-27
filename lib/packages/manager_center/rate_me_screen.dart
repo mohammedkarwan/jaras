@@ -12,6 +12,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../compontes/componets.dart';
 import '../constants/constants.dart';
+import '../manager_room/bribery.dart';
+import '../manager_room/correspondents.dart';
+import '../manager_room/employ.dart';
 import '../manager_room/room.dart';
 import '../style/colors.dart';
 
@@ -121,18 +124,21 @@ class RateMeScreen extends StatelessWidget {
                     name: language(context).employees,
                     onTap: () {
                       Navigator.pop(context);
+                      navPush(context, EmployScreen());
                     }),
                 componetsDrower(
                     context: context,
                     name: language(context).correspondents,
                     onTap: () {
                       Navigator.pop(context);
+                      navPush(context, CorrespondentsScreen());
                     }),
                 componetsDrower(
                     context: context,
                     name: language(context).bribery,
                     onTap: () {
                       Navigator.pop(context);
+                      navPush(context, BriberyScreen());
                     }),
                 componetsDrower(
                     context: context,
