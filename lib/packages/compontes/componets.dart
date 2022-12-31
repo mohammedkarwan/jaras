@@ -85,6 +85,7 @@ Widget textAndTextFromFiled(
         TextEditingController? controller) =>
     Row(
       crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
           text,
@@ -100,9 +101,10 @@ Widget textAndTextFromFiled(
           child: Align(
             alignment: AlignmentDirectional.centerEnd,
             child: Container(
-              height: 45,
-              width: 210,
+              width: 200,
               child: TextFormField(
+                cursorHeight: 30,
+                style: TextStyle(fontSize: 16, height: 1),
                 controller: controller,
                 textAlign: TextAlign.start,
                 decoration: InputDecoration(
@@ -120,6 +122,55 @@ Widget textAndTextFromFiled(
         ),
       ],
     );
+ScaffoldFeatureController<SnackBar, SnackBarClosedReason> defaultSnackBar({
+  required String text,
+  required SnackBarState state,
+  required context,
+}) {
+  return ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      content: Text(
+        text,
+        style: const TextStyle(
+          fontWeight: FontWeight.bold,
+        ),
+        textAlign: TextAlign.center,
+      ),
+      duration: const Duration(milliseconds: 1000),
+      backgroundColor: choseColor(state),
+      padding: const EdgeInsets.all(15),
+      margin: const EdgeInsets.all(70),
+      shape: const StadiumBorder(),
+      behavior: SnackBarBehavior.floating,
+      elevation: 5,
+    ),
+  );
+}
+
+Widget defaultCircleIndicator() {
+  return Center(
+    child: CircularProgressIndicator(
+      backgroundColor: Colors.grey,
+      color: myFavColor,
+    ),
+  );
+}
+
+Color choseColor(SnackBarState state) {
+  Color color;
+  switch (state) {
+    case SnackBarState.success:
+      color = Colors.green;
+      break;
+    case SnackBarState.error:
+      color = Colors.red;
+      break;
+  }
+  return color;
+}
+
+enum SnackBarState { success, error }
+
 Widget apparContanier({
   required Size size,
   required context,
@@ -355,6 +406,8 @@ Widget bulidTwoBottons({
   required String botton1,
   required String botton2,
   required String rateme,
+  Color? color1,
+  Color? color2,
   required void Function()? onPressed1,
   required void Function()? onPressed2,
   required void Function()? onPressed3,
@@ -366,7 +419,7 @@ Widget bulidTwoBottons({
           MaterialButton(
             height: 30,
             minWidth: 20,
-            color: myFavColor1,
+            color: color1 ?? myFavColor1,
             onPressed: onPressed1,
             shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(3),
@@ -383,7 +436,7 @@ Widget bulidTwoBottons({
           MaterialButton(
             height: 32,
             minWidth: 60,
-            color: Colors.grey.shade500,
+            color: color2 ?? Colors.grey.shade500,
             onPressed: onPressed2,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(3),

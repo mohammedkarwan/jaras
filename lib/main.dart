@@ -1,5 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:ee/packages/auth/cubit/cubit/cubit.dart';
+import 'package:ee/packages/auth/foundation/cubit.dart';
+import 'package:ee/packages/auth/person/cubite.dart';
 import 'package:ee/packages/constants/bloc_ob_server.dart';
 import 'package:ee/packages/constants/constants.dart';
 import 'package:ee/packages/constants/shared_pref_key.dart';
@@ -32,6 +34,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
+        BlocProvider(
+          create: (BuildContext context) => FoundaionSiginUpCubit(),
+        ),
+        BlocProvider(
+          create: (BuildContext context) => PersonSiginUpCubit(),
+        ),
         BlocProvider(
           create: (BuildContext context) => LanguageCubit(),
         ),

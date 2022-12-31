@@ -1,10 +1,10 @@
-import 'package:ee/packages/auth/account_anIndividual.dart';
+import 'package:ee/packages/auth/person/account_anIndividual.dart';
 import 'package:ee/packages/style/colors.dart';
 import 'package:flutter/material.dart';
 
 import '../compontes/componets.dart';
 import '../constants/constants.dart';
-import 'account_foundation.dart';
+import 'foundation/account_foundation.dart';
 
 class RegssterScreen extends StatelessWidget {
   const RegssterScreen({Key? key}) : super(key: key);

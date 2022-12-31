@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../auth/drowr/bribery/briberysetting.dart';
 import '../auth/drowr/bribery/newShoppinglist.dart';
+import '../auth/drowr/bribery/previousPurchases.dart';
 import '../compontes/componets.dart';
 import '../constants/constants.dart';
 import '../style/colors.dart';
@@ -77,7 +78,7 @@ class BriberyScreen extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .subtitle2!
-                          .copyWith(color: myFavColor, fontSize: 13),
+                          .copyWith(color: myFavColor, fontSize: 12),
                     )
                   ],
                 ),
@@ -106,7 +107,7 @@ class BriberyScreen extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .subtitle2!
-                          .copyWith(color: myFavColor, fontSize: 13),
+                          .copyWith(color: myFavColor, fontSize: 12),
                     )
                   ],
                 ),
@@ -117,7 +118,9 @@ class BriberyScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        navPush(context, PreviousPurchasesScreen());
+                      },
                       child: CircleAvatar(
                         backgroundColor: myFavColor2,
                         radius: 35,
@@ -133,7 +136,7 @@ class BriberyScreen extends StatelessWidget {
                       style: Theme.of(context)
                           .textTheme
                           .subtitle2!
-                          .copyWith(color: myFavColor, fontSize: 13),
+                          .copyWith(color: myFavColor, fontSize: 12),
                     )
                   ],
                 ),

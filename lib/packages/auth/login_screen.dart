@@ -6,10 +6,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../constants/constants.dart';
+import '../constants/end_point.dart';
+import '../helper/cache_helper.dart';
 import '../lang/lang_cubit.dart';
 import '../manager_center/main_screen.dart';
 import '../manager_center/profile_Screen.dart';
 import '../manager_center/rate_me_screen.dart';
+import '../manager_room/test_screen.dart';
 import '../style/colors.dart';
 import 'linkedaccount_screen.dart';
 import 'myconnect_secreen.dart';
@@ -24,145 +27,146 @@ class LoginScreen extends StatelessWidget {
     var formKey = GlobalKey<FormState>();
     final phoneController = TextEditingController();
     final codeController = TextEditingController();
-    return BlocConsumer<LogingCubit, LoginStates>(
-      builder: (context, state) {
-        Size size = MediaQuery.of(context).size;
-        var cubit = LogingCubit.get(context);
+    return BlocConsumer<LogingCubit, LoginStates>(builder: (context, state) {
+      Size size = MediaQuery.of(context).size;
+      var cubit = LogingCubit.get(context);
 
-        return Scaffold(
-          key: scaffoldkey,
-          drawer: Drawer(
-            backgroundColor: Colors.white,
-            width: 265,
-            child: ListView(
-              children: [
-                Image(
-                  image: AssetImage('assets/images/Jaraslogo.png'),
-                  height: 80,
-                  width: 80,
-                ),
-                Divider(
-                  thickness: 4,
-                  endIndent: 20,
-                  indent: 20,
+      return Scaffold(
+        key: scaffoldkey,
+        drawer: Drawer(
+          backgroundColor: Colors.white,
+          width: 265,
+          child: ListView(
+            children: [
+              Image(
+                image: AssetImage('assets/images/Jaraslogo.png'),
+                height: 80,
+                width: 80,
+              ),
+              Divider(
+                thickness: 4,
+                endIndent: 20,
+                indent: 20,
+                color: myFavColor,
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              componetsDrower(
+                  context: context,
+                  name: language(context).main,
+                  onTap: () {
+                    Navigator.pop(context);
+
+                    navPush(context, MainScreen());
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).arithmetic,
+                  onTap: () {
+                    Navigator.pop(context);
+                    navPush(context, ProfileScreen());
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).linkedaccounts,
+                  onTap: () {
+                    Navigator.pop(context);
+                    navPush(context, LinkedAccountScreen());
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).myconnections,
+                  onTap: () {
+                    Navigator.pop(context);
+                    navPush(context, MyConccetScreen());
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).services,
+                  onTap: () {
+                    Navigator.pop(context);
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).thestore,
+                  onTap: () {
+                    Navigator.pop(context);
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).reports,
+                  onTap: () {
+                    Navigator.pop(context);
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).therooms,
+                  onTap: () {
+                    Navigator.pop(context);
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).employees,
+                  onTap: () {
+                    Navigator.pop(context);
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).correspondents,
+                  onTap: () {
+                    Navigator.pop(context);
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).bribery,
+                  onTap: () {
+                    Navigator.pop(context);
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).plugins,
+                  onTap: () {
+                    Navigator.pop(context);
+                  }),
+              componetsDrower(
                   color: myFavColor,
-                ),
-                SizedBox(
-                  height: 15,
-                ),
-                componetsDrower(
-                    context: context,
-                    name: language(context).main,
-                    onTap: () {
-                      Navigator.pop(context);
-
-                      navPush(context, MainScreen());
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).arithmetic,
-                    onTap: () {
-                      Navigator.pop(context);
-                      navPush(context, ProfileScreen());
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).linkedaccounts,
-                    onTap: () {
-                      Navigator.pop(context);
-                      navPush(context, LinkedAccountScreen());
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).myconnections,
-                    onTap: () {
-                      Navigator.pop(context);
-                      navPush(context, MyConccetScreen());
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).services,
-                    onTap: () {
-                      Navigator.pop(context);
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).thestore,
-                    onTap: () {
-                      Navigator.pop(context);
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).reports,
-                    onTap: () {
-                      Navigator.pop(context);
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).therooms,
-                    onTap: () {
-                      Navigator.pop(context);
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).employees,
-                    onTap: () {
-                      Navigator.pop(context);
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).correspondents,
-                    onTap: () {
-                      Navigator.pop(context);
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).bribery,
-                    onTap: () {
-                      Navigator.pop(context);
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).plugins,
-                    onTap: () {
-                      Navigator.pop(context);
-                    }),
-                componetsDrower(
-                    color: myFavColor,
-                    context: context,
-                    name: cubit.isLang == false ? 'English' : 'العربي',
-                    onTap: () {
-                      cubit.changeLange(context);
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).knowAboutUs,
-                    onTap: () {
-                      cubit.changeLange(context);
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).departmentsAndDivisions,
-                    onTap: () {
-                      cubit.changeLange(context);
-                    }),
-                componetsDrower(
-                    context: context,
-                    name: language(context).printers,
-                    onTap: () {
-                      cubit.changeLange(context);
-                    }),
-                SizedBox(
-                  height: size.height * 0.01,
-                ),
-                buildImag(height: 40, width: 40),
-                SizedBox(
-                  height: size.height * 0.01,
-                ),
-              ],
-            ),
+                  context: context,
+                  name: cubit.isLang == false ? 'English' : 'العربي',
+                  onTap: () {
+                    cubit.changeLange(context);
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).knowAboutUs,
+                  onTap: () {
+                    cubit.changeLange(context);
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).departmentsAndDivisions,
+                  onTap: () {
+                    cubit.changeLange(context);
+                  }),
+              componetsDrower(
+                  context: context,
+                  name: language(context).printers,
+                  onTap: () {
+                    cubit.changeLange(context);
+                  }),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
+              buildImag(height: 40, width: 40),
+              SizedBox(
+                height: size.height * 0.01,
+              ),
+            ],
           ),
-          body: SingleChildScrollView(
+        ),
+        body: SingleChildScrollView(
+          child: Form(
+            key: formKey,
             child: Column(children: [
               buildApper(size, context, () {
                 scaffoldkey.currentState?.openDrawer();
@@ -216,22 +220,28 @@ class LoginScreen extends StatelessWidget {
                         const SizedBox(
                           height: 20,
                         ),
-                        Align(
-                          alignment: AlignmentDirectional.topStart,
-                          child: MaterialButton(
-                            height: 40,
-                            minWidth: 150,
-                            onPressed: () {
-                              if (formKey.currentState!.validate()) {}
-                            },
-                            color: myFavColor,
-                            child: Text(language(context).login,
-                                style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                )),
-                          ),
-                        ),
+                        state is JarasLoginLoadingState
+                            ? Center(child: defaultCircleIndicator())
+                            : Align(
+                                alignment: AlignmentDirectional.topStart,
+                                child: MaterialButton(
+                                  height: 40,
+                                  minWidth: 150,
+                                  onPressed: () {
+                                    if (formKey.currentState!.validate()) {
+                                      cubit.loginData(
+                                          phone: phoneController.text,
+                                          phone_code: codeController.text);
+                                    }
+                                  },
+                                  color: myFavColor,
+                                  child: Text(language(context).login,
+                                      style: const TextStyle(
+                                        color: Colors.white,
+                                        fontWeight: FontWeight.bold,
+                                      )),
+                                ),
+                              ),
                       ],
                     ),
                   ),
@@ -259,6 +269,9 @@ class LoginScreen extends StatelessWidget {
                         width: 10,
                       ),
                       InkWell(
+                        onTap: () {
+                          navPush(context, TestScreen());
+                        },
                         child: CircleAvatar(
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.center,
@@ -318,9 +331,36 @@ class LoginScreen extends StatelessWidget {
               ),
             ]),
           ),
+        ),
+      );
+    }, listener: (context, state) {
+      if (state is JarasLoginSuccessState) {
+        if (state.jarasLoginData.error == false) {
+          CacheHelper.setData(
+                  key: tokenKey, value: state.jarasLoginData.data?.token)
+              .then((value) {
+            defaultSnackBar(
+              text: state.jarasLoginData.message!,
+              state: SnackBarState.success,
+              context: context,
+            );
+          });
+          navPush(context, MainScreen());
+          state == LogingCubit.get(context).getToken(context);
+        } else if (LogingCubit.get(context).isLogin == false) {
+          // defaultSnackBar(
+          //   text: 'Not found',
+          //   state: SnackBarState.error,
+          //   context: context,
+          // );
+        }
+      } else if (state is JarasLoginErrorState) {
+        defaultSnackBar(
+          text: 'error phone or password',
+          state: SnackBarState.error,
+          context: context,
         );
-      },
-      listener: (context, state) {},
-    );
+      }
+    });
   }
 }

@@ -648,6 +648,9 @@ class _NewShoppingListScreenState extends State<NewShoppingListScreen> {
           color: myFavColor2,
           child: Row(
             children: [
+              SizedBox(
+                width: 8,
+              ),
               Text(
                 "${language(context).sendTo}:",
                 style: Theme.of(context).textTheme.subtitle1,

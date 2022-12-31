@@ -1,6 +1,8 @@
 const String login = 'login';
 const String signUp = 'register';
 const String home = 'home';
+const String tokenKey = 'token';
+
 const String categories = 'categories';
 const String favorites = 'favorites';
 const String buyProduct = 'carts';
