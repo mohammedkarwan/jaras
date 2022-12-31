@@ -1,9 +1,11 @@
+import 'package:ee/packages/manager_center/main_screen.dart';
 import 'package:ee/packages/style/colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '../auth/login_screen.dart';
 import '../compontes/componets.dart';
+import '../constants/shared_pref_key.dart';
 
 class SplachScreen extends StatefulWidget {
   const SplachScreen({Key? key}) : super(key: key);
@@ -16,8 +18,14 @@ class _SplachScreenState extends State<SplachScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    Future.delayed(Duration(seconds: 3))
-        .then((value) => {navRemoveUntil(context, LoginScreen())});
+    if(tokenKey=="null"){
+      Future.delayed(Duration(seconds: 3))
+          .then((value) => {navRemoveUntil(context, LoginScreen())});
+    }
+    else {
+      navPush(context, MainScreen());
+    }
+
     super.initState();
   }
 

@@ -22,7 +22,7 @@ void main() async {
   defaultLangData = await CacheHelper.getData(key: defaultLangKey) ?? 'ar';
   chooseLang = await CacheHelper.getData(key: chooseLangKey) ?? 'ar';
   print(chooseLang + 'chooseLangchooseLang');
-
+  tokenKey = CacheHelper.getData(key: tokenKey)??"null";
   Bloc.observer = MyBlocObserver();
   runApp(const MyApp());
 }
